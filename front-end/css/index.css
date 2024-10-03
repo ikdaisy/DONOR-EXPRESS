@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cont{
+    width: 100%;
+    height: 100vh;
+   
+
+}
+
+.nav{
+    width: 100%;
+    height: 9vh;
+    background-color: rgb(109, 11, 11);
+    /* background: linear-gradient( 90deg, rgb(124, 17, 17),rgb(214, 210, 210) 100%); */
+
+
+    color:white;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+ul{
+    margin-left: 50px;
+    
+ 
+}
+li{
+    display: inline;
+    justify-content: space-between;
+    margin-right: 10px;
+
+   
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav a:hover{
+    color: #999;
+    
+}
+.nav h2{
+    margin-left: 10px;
+    font-size: 35px;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+
+
+.main{
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+    
+  
+    width: 100%;
+}
+
+.search{
+    background-color: white;
+    border: 2px solid  rgb(104, 16, 16);
+    border-radius: 10px;
+    color:  rgb(104, 16, 16);
+    width: 500px;
+    text-align: left;
+}
+input[type="search"]::placeholder {
+    color: rgb(104, 16, 16);
+    font-style: italic;
+    font-size: 13px;
+    padding-left: 6px;
+  }
+
+  input[type="search"]:focus {
+    outline: none;
+    box-shadow: rgba(66, 65, 65, 0.35) 0px 5px 15px;
+    transition: all 0.2s ease-in-out;
+  }
+
+
+input{
+    /* border-radius: 8px; */
+    padding: 5px 2px;
+    /* margin-right: 20px; */
+    height: 100%;
+    border: none;
+    width: 150px;
+   text-align: center;
+    color:  rgb(184, 35, 35);
+    font-size: 15px;
+   font-weight: bold;
+ 
+
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: rgba(66, 65, 65, 0.35) 0px 5px 15px;
+    /* box-sizing: border-box; */
+  transition: all 0.2s ease-in-out;
+    
+    
+  }
+
+  input[type="text"]::placeholder {
+    color: #999;
+    font-style: italic;
+    font-size: 13px;
+    padding-left: 10px;
+  }
+
+
+
+.edit-btn{
+    color:white;
+    background-color: rgb(104, 16, 16);
+
+    padding: 10px 10px;
+    /* margin-right: 8px; */
+    border: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+
+ .edit-btn:hover{
+    background-color: rgb(160, 37, 37);
+
+    color:white;
+ }
+ .delete-btn:hover{
+    background-color:rgb(160, 37, 37);
+
+
+ }
+ .delete-btn{
+    background-color:rgb(104, 16, 16);
+
+
+    color:white;
+    padding: 10px 6px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    
+ }
+
+ .add-btn{
+   font-weight: bold;
+   padding: 10px 20px;
+   border-radius: 5px;
+   margin-right: 10px;
+   cursor: pointer;
+   border: none;
+   color: white;
+   background-color:rgb(104, 16, 16);
+ }
+ .add-btn:hover{
+   background-color: rgb(160, 37, 37);
+ }
+
+ 
+
+ 
+ 
+/* table design  */
+
+.styled-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    /* min-width: 1340px; */
+    min-width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: rgb(104, 16, 16);
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(104, 16, 16);
+}
+
+
+/* media query */
+@media (min-width:400px) and (max-width:575.98px){
+   
+}
+
+@media (min-width:576px) and (max-width:767.98px){
+        
+}
+
+@media (min-width:768px) and (max-width:991.98px){
+    
+}
