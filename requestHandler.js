@@ -5,6 +5,8 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 const {sign}=jwt
 
+
+//add donor
 export async function addDonor(req,res){
     // console.log("hi");
     //sends a response
@@ -68,6 +70,7 @@ export async function getDonors(req,res) {
     
 }
 
+//get donor
 export async function getDonor(req,res){
   try{
     console.log(req.params);
@@ -150,23 +153,61 @@ export async function signUp(req,res) {
     if(password!=cpassword)
         return res.status(404).send({msg:"Passwords doesnt match"})
 
-    bcrypt.hash(password,10).then(async(hashedPassword)=>{
-        console.log(hashedPassword);
-        await userSchema.create({username,email,password:hashedPassword}).then(()=>{
-            res.status(201).send({msg:"Successfully registered"})
+    //Method 1 to hash password 
+    //============================================================================================
+    // bcrypt.hash(password,10).then(async(hashedPassword)=>{
+    //     console.log(hashedPassword);
+    //     await userSchema.create({username,email,password:hashedPassword}).then(()=>{
+    //         res.status(201).send({msg:"Successfully registered"})
 
-        }).catch((error)=>{
+    //     }).catch((error)=>{
         
-            res.status(404).send({msg:"Failed to register"})
+    //         res.status(404).send({msg:"Failed to register"})
 
-        })
+    //     })
         
 
-    }).catch((error)=>{
-    return res.status(404).send({msg:error})
+    // }).catch((error)=>{
+    // return res.status(404).send({msg:error})
 
 
-    })
+    // })
+
+    //=============================================================================================
+    //Method 2 to hash password 
+    // bcrypt.genSalt(10, function(err, salt) {
+    //     bcrypt.hash(password, salt, async function(err, hash) {
+    //         // Store hash in your password DB.
+    //         console.log(hash);
+    //         await userSchema.create({username,email,password:hash}).then(()=>{
+    //                     res.status(201).send({msg:"Successfully registered"})
+            
+    //                 }).catch((error)=>{
+                    
+    //                     res.status(404).send({msg:"Failed to register"})
+            
+    //                 })
+            
+    //     });
+
+        
+    // });
+    //==============================================================================================
+    //Method 3 to hash password 
+
+    bcrypt.hash(password, 10, async function(err, hash) {
+        // Store hash in your password DB.
+        console.log(hash);
+        await userSchema.create({username,email,password:hash}).then(()=>{
+                                res.status(201).send({msg:"Successfully registered"})
+                    
+                            }).catch((error)=>{
+                            
+                                res.status(404).send({msg:"Failed to register"})
+                    
+                            })
+        
+    });
 }
 
 // Sign In 
