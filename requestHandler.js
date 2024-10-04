@@ -214,6 +214,8 @@ export async function signUp(req,res) {
 
 export async function signIn(req,res) {
     try {
+       
+        
         const {email,password}=req.body
     if(!(email&&password))
         return res.status(404).send({msg:"Fields are empty"})
