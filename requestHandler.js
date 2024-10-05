@@ -39,9 +39,6 @@ export async function addDonor(req,res){
 
 
     }
-    
-    
-    
 
    }
     catch(error){
@@ -56,13 +53,10 @@ export async function getDonors(req,res) {
         const donors = await donorSchema.find()
         // console.log(donors);
         // res.status(200).send({msg:donors})
-        res.status(200).send(donors)
-
-        
-
+        res.status(200).send({donors,user:req.user})
     }
     catch(error){
-        res.status(200).send({msg:error})
+        res.status(404).send({msg:error})
 
 
 

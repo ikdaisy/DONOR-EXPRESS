@@ -1,18 +1,35 @@
 let donors;
+const Token = localStorage.getItem("Token")
+console.log(Token);
+
+Token?document.getElementById("buttons").innerHTML=` <span id="username"></span>
+              
+                <a href="./index.html"><li>Home</li></a>
+               <a href="./pages/add.html"> <li>Add Donor</li></a>
+               
+               <a href="" onclick="signOut()"> <li>Sign Out </li></a>`:document.getElementById("buttons").innerHTML=` <span id="username"></span>
+              
+                <a href="./index.html"><li>Home</li></a>
+               <a href="./pages/add.html"> <li>Add Donor</li></a>
+               <a href="./pages/signup.html"> <li>Sign Up </li></a>`
+
 
 async function getDonors(){
-    const  res= await fetch("http://localhost:3002/api/getdonors")
+    const  res= await fetch("http://localhost:3002/api/getdonors",{headers:{"authorization":`Bearer ${Token}`}})
     console.log(res);
+    donors = await res.json()
+
 
    if(res.status==200){
-     donors = await res.json()
     console.log(donors);
+   
  
     
     str=``
-    donors.map((donor)=>{
+    donors.donors.map((donor)=>{
         // console.log(donor._id);
         // console.log(donor.name);
+         document.getElementById("username").textContent=donors.user
         str+=` <div>
                         
                         <tr>
@@ -36,6 +53,10 @@ async function getDonors(){
         
     })
     document.getElementById("main").innerHTML=str
+   }
+   else{
+    alert(donors.msg)
+    // alert("Unable to fetch data")
    }
     
     
@@ -90,4 +111,9 @@ async function deleteDonor(id){
             alert("Failed To Delete");
         }
     }  
+}
+
+
+function signOut(){
+    localStorage.removeItem("Token")
 }

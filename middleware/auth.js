@@ -7,9 +7,9 @@ const {verify}=jwt
 export default async function Auth(req,res,next) {
     try {
         console.log("middleware");
-    // console.log(req.headers.authorization);
+    console.log(req.headers);
     const key = req.headers.authorization
-    // console.log(key);
+    console.log(key);
     if(!key)
         return res.status(403).send({msg:"Unauthorized access"})
     //get the key only without the word bearers
